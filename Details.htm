@@ -1,0 +1,141 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Пневмоинструменты</title>
+    <link href="css/css.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script type="text/javascript">
+      $(document).ready(function () {
+        $(".menuitem").hover(function () {
+          $(this).removeClass("menuitem");
+          $(this).addClass("menuitem_hover");
+        });
+        $(".menuitem").mouseleave(function () {
+          $(this).removeClass("menuitem_hover");
+          $(this).addClass("menuitem");
+        });
+
+        $("#imager").hover(function () {
+          $("#shadow").show();
+        });
+        $("#shadow").mouseleave(function () {
+          $("#shadow").hide();
+        });
+
+
+        $(".details_table tr").hover(function () {
+          $(this).css("background", "#F0F0F0");
+        });
+        $(".details_table tr").mouseleave(function () {
+          $(this).css("background", "#FFFFFF");
+        });
+      });
+    </script>
+</head>
+<body>
+  <div class="top">
+    <div class="hat">
+      <div class="liner">
+        <div class="title"><a href="Default.aspx">ПНЕВМОИНСТРУМЕНТЫ</a></div>
+        <div class="basket">
+          <div class="basketText">Ваша корзина пуста</div>
+          <div class="basketImage"></div>
+        </div>
+      </div>
+      <div class="subliner">
+        <div class="phone">+7-928-100-20-10<br />+7-938-100-20-10</div>
+        <div class="delivery">
+          <span>доставка по:</span>
+          <select class="selectCity">
+            <option>Владимир</option>
+            <option>Москва</option>
+            <option>Омск</option>
+            <option>Ростов-на-Дону</option>
+            <option>Санкт-Петербург</option>
+            <option>Ярославль</option>
+          </select>
+        </div>
+        <div class="search">
+          <input type="text" value="ПОИСК" />
+        </div>
+        <div class="searchBtn"></div>
+        <div class="socnetworks"></div>
+      </div>
+    </div>
+    <div class="mainMenu">
+      <table class="menuTable">
+        <tr>
+          <td class="menuitem"><a href="Default.aspx">Главная</a></td>
+          <td class="separator"></td>
+          <td class="menuitem">Доставка</td>
+          <td class="separator"></td>
+          <td class="menuitem">Контакты</td>
+          <td class="separator"></td>
+          <td class="menuitem">Каталог</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  <div class="content_back">
+    <table class="content">
+      <tr>
+        <td class="content_left">
+          <div class="category">
+            <div id="imager" style="background:url(/img/item_img.png) no-repeat; width:230px; height:215px;"></div>
+            <div id="shadow" style="display:none;">
+              <div class="hovered">
+              </div>
+              <div style="background:url(/img/enlarge.png);width:48px;height:48px;position:absolute;margin:-130px 0 0 90px;cursor:pointer;"></div>
+            </div>
+          </div>
+        </td>
+        <td class="content_right">
+          <div class="bordered">
+            <table class="details_table">
+              <tr>
+                <td>S6520 6-1/4</td>
+                <td>Фитинг Camozzi присоединение G1/8, диаметр трубопровода 6 мм</td>
+                <td>189.71 р.</td>
+                <td><input type="text" maxlength="3" /> шт.</td>
+                <td><img src="img/tocart.png" /></td>
+              </tr>
+              <tr>
+                <td>S6520 6-1/4</td>
+                <td>Фитинг Camozzi присоединение G1/4, диаметр трубопровода 6 мм</td>
+                <td>189.71 р.</td>
+                <td><input type="text" maxlength="3" /> шт.</td>
+                <td><img src="img/tocart.png" /></td>
+              </tr>
+              <tr>
+                <td>S6520 6-1/4</td>
+                <td>Фитинг Camozzi присоединение G3/8, диаметр трубопровода 6 мм</td>
+                <td>189.71 р.</td>
+                <td><input type="text" maxlength="3" /> шт.</td>
+                <td><img src="img/tocart.png" /></td>
+              </tr>
+              <tr>
+                <td>S6520 6-1/4</td>
+                <td>Фитинг Camozzi присоединение G1/2, диаметр трубопровода 6 мм</td>
+                <td>189.71 р.</td>
+                <td><input type="text" maxlength="3" /> шт.</td>
+                <td><img src="img/tocart.png" /></td>
+              </tr>
+              <tr>
+                <td>S6520 6-1/4</td>
+                <td>Фитинг Camozzi присоединение G1, диаметр трубопровода 6 мм</td>
+                <td>189.71 р.</td>
+                <td><input type="text" maxlength="3" /> шт.</td>
+                <td><img src="img/tocart.png" /></td>
+              </tr>
+            </table>
+          </div>
+        </td>
+      </tr>
+    </table>
+  </div>
+  <div class="footer">
+    <span>Телефон: +7-928-100-20-10 &nbsp;|&nbsp; +7-938-100-20-10 &nbsp;&nbsp;&nbsp;&nbsp; Адрес: г. Ростов-на-Дону, ул. Зорге 15/3, оф. 114, 344000</span>
+  </div>
+</body>
+</html>

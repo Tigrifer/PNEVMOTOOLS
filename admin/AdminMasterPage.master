@@ -1,0 +1,50 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="AdminMasterPage.master.cs" Inherits="admin_AdminMasterPage" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    <script src="../js/jquery-1.10.0.min.js" type="text/javascript"></script>
+    <asp:ContentPlaceHolder id="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <style type="text/css">
+table{border-collapse:collapse;border:1px solid gray;font-size:14px;}
+.itemsTable th{background:DarkGreen;color:White;padding:5px 10px;border:1px solid #AAAAAA;}
+.itemsTable td{padding:5px 10px;}
+.itemsTable a{color:White;cursor:pointer;}
+.deleteImage{color:Green;text-decoration:underline;cursor:pointer;}
+.OrderCells td{border:1px solid #555555; padding:5px;}
+.OrderCells a{color:Green;font-weight:bold;}
+.OrderCells sup{color:Gray;float:right;}
+    </style>
+</head>
+<body style="font-family:Tahoma;">
+  <form id="form1" runat="server">
+  <asp:ScriptManager runat="server" EnablePageMethods="true" EnablePartialRendering="true"></asp:ScriptManager>
+  <div>
+    <table width="100%" class="itemsTable">
+      <tr>
+        <th><a href="Default.aspx">Товары</a></th>
+        <th><a href="Orders.aspx">Заказы</a></th>
+        <th><a href="Category.aspx">Категории</a></th>
+        <th><a href="Sizes.aspx">Размеры</a></th>
+        <th><a href="Rezba.aspx">Резьбы</a></th>
+        <th><a href="Cities.aspx">Города</a></th>
+        <th><a href="SalesReport.aspx">Отчет продаж</a></th>
+        <th><a href="Currency.aspx">Курс валюты</a></th>
+        <th><a href="Margin.aspx">Наценки</a></th>
+        <th><a href="Report.aspx">Отчеты доход/расход</a></th>
+        <th><a href="TestSMS.aspx">Тест СМС</a></th>
+        <th><a href="/">На сайт</a></th>
+      </tr>
+    </table>
+    <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
+        
+    </asp:ContentPlaceHolder>
+  </div>
+  </form>
+<form enctype="multipart/form-data" method="post" onsubmit="return UploadFile();" id="formImageUpload" action="/admin/ImageUploadHandler.ashx">
+</form>
+</body>
+</html>

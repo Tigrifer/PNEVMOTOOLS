@@ -1,0 +1,156 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage.master.cs" Inherits="MasterPage" %>
+<%@ Register Src="~/controls/Cart.ascx" TagPrefix="uc" TagName="Cart" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    <link href="css/css_new.css" rel="stylesheet" type="text/css" />
+    <script src="js/jquery-1.10.0.min.js" type="text/javascript"></script>
+    <script src="js/core.js" type="text/javascript"></script>
+    <script src="js/JQueryCookie.js" type="text/javascript"></script>
+    <script type="text/javascript">
+      $(document).ready(function () {
+        if (!$.cookie("selectedCityToDeliver")) {
+          $.cookie("selectedCityToDeliver", $("#ddlCities").children('option:selected').val());
+          $("#ddlCities").change();
+        }
+      });
+    </script>
+    <asp:ContentPlaceHolder id="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+  <form id="form1" runat="server">
+    <asp:ScriptManager runat="server" EnablePageMethods="true" EnablePartialRendering="true"></asp:ScriptManager>
+    <div class="topLiner">
+      <div class="topLinerContainer">Позвоните нам сейчас: <span>+7-928-100-20-10 +7-938-100-20-10</span></div>
+    </div>
+    <div class="hat">
+      <div class="logo" onclick="location.href='/'"></div>
+      <div class="deliveryBox"></div>
+      <div class="deliveryText" style="width:256px;">
+        При заказе от <span id="txtDeliveryLimit" runat="server" clientidmode="Static">2600</span> руб. доставка по 
+      </div>
+      <asp:DropDownList runat="server" ID="ddlCities" class="roundBorder" onchange="CityChanged(this);" />
+      <div class="deliveryText">бесплатно</div>
+      <div class="cartBox" onclick="location.href='/CartPage.aspx'">
+        <b>Кол-во:</b> <span id="cartCount" runat="server" clientidmode="Static"></span><br />
+        <span id="cartTotal" runat="server" clientidmode="Static"></span> руб.
+      </div>
+    </div>
+    <div class="mainMenu">
+        <div class="left"></div>
+        <div class="center" onclick="MainMenuClick('');"><a>Главная</a></div>
+        <div class="delimiter"></div>
+        <div class="center" onclick="MainMenuClick(2);"><a>Фитинги</a></div>
+        <div class="delimiter"></div>
+        <div class="center" onclick="MainMenuClick(3);"><a>Трубки</a></div>
+        <div class="delimiter"></div>
+        <div class="center" onclick="MainMenuClick(4);"><a>Клапаны</a></div>
+        <div class="right"></div>
+    </div>
+    
+    <table class="mainContainer">
+      <tr>
+        <td class="topLeft"></td>
+        <td class="topCenter"></td>
+        <td class="topRight"></td>
+      </tr>
+      <tr>
+        <td class="centerLeft"></td>
+        <td style="background:white;vertical-align:top;">
+          <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
+          </asp:ContentPlaceHolder>
+        </td>
+        <td class="centerRight"></td>
+      </tr>
+      <tr>
+        <td class="bottomLeft"></td>
+        <td class="bottomCenter"></td>
+        <td class="bottomRight"></td>
+      </tr>
+    </table>
+    
+    <div class="footerHead"></div>
+    <div class="footer">
+      <div class="footerContainer">
+        <table style="width:100%;text-align:left;">
+          <tr>
+            <td style="width:34%;padding:0 0 0 10px;">
+              <div style="font-size:18px;">звоните нам</div>
+              <div>
+                <span style="color:#BEC841;font-size:24px;">+7-928-100-20-10</span>
+              </div>
+              <div>
+                <span style="color:#BEC841;font-size:24px;">+7-938-100-20-10</span>
+              </div>
+              <div style="font-size:14px;">с 9:00 до 21:00 без выходных</div>
+            </td>
+            <td style="width:33%;padding:0 0 0 50px;">
+              <div style="font-size:18px;">пишите</div>
+              <div style="margin:10px 0 0; font-size:14px;">
+                <img src="/img/mailIcon.png" alt="mail" /> info@valmex.ru
+              </div>
+              <div style="margin:10px 0 0; font-size:14px;">
+                <img src="/img/getCallBack.png" alt="get call back" /> закажите звонок
+              </div>
+            </td>
+            <td style="width:33%;padding:0 0 0 10px;">
+              <div style="font-size:18px;">будьте на связи</div>
+              <div style="margin:15px 0 0;">
+                <img src="/img/fbIcon.png" alt="fb" />&nbsp;
+                <img src="/img/vkIcon.png" alt="vk" />&nbsp;
+                <img src="/img/odklIcon.png" alt="odk" />
+              </div>
+            </td>
+          </tr>
+        </table>
+        <table style="width:100%;text-align:left;margin:40px 0 0; font-size:13px;">
+          <tr>
+            <td style="width:25%;padding-left:10px;">
+              <div><span style="color:#BEC841;font-size:14px;">О компании</span></div>
+              <div style="margin:15px 0 0;">
+                О нас<br />
+                Контакты<br />
+                Реквизиты
+              </div>
+            </td>
+            <td style="width:25%;">
+              <div><span style="color:#BEC841;font-size:14px;">Конфиденциальность</span></div>
+              <div style="margin:15px 0 0;">
+                Положение об использовании
+              </div>
+            </td>
+            <td style="width:25%;">
+              <div><span style="color:#BEC841;font-size:14px;">Услуги и поддержка</span></div>
+              <div style="margin:15px 0 0;">
+                Помощь<br />
+                Сертификаты
+              </div>
+            </td>
+            <td style="width:25%;">
+              <div><span style="color:#BEC841;font-size:14px;">Доставка и возврат</span></div>
+              <div style="margin:15px 0 0;">
+                Условия покупки<br />
+                Условия доставки<br />
+                Условия возврата<br />
+                Срок доставки
+              </div>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </form>
+  <div class="msgOverlay" id="msgDivOverlay" style="display:none;">
+    <div class="msgShadow"></div>
+    <div class="msgContent">
+      <div class="msgTitle" id="msgTitle"></div>
+      <div class="msgText" id="msgText"></div>
+      <div onclick="HideMessage();" class="msgClose" onmouseover="$(this).css('background', 'lightgray');" onmouseout="$(this).css('background', 'transparent');" >X</div>
+    </div>
+  </div>
+</body>
+</html>
